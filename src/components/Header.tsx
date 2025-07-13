@@ -7,7 +7,7 @@ export function Header({ title }: { title: string }) {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 print-hidden">
       <div className="container flex h-16 max-w-screen-2xl items-center">
         <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link href="/dashboard" className="mr-6 flex items-center space-x-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -36,9 +36,9 @@ export function Header({ title }: { title: string }) {
           </div>
           <nav className="flex items-center">
             <Button variant="ghost" size="icon" asChild>
-                <Link href="/">
+                <Link href="/dashboard">
                     <Home className="h-5 w-5" />
-                    <span className="sr-only">Home</span>
+                    <span className="sr-only">Dashboard</span>
                 </Link>
             </Button>
           </nav>
