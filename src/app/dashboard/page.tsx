@@ -76,7 +76,7 @@ export default function DashboardPage() {
         </div>
       </main>
       <footer className="text-center p-4 text-sm text-muted-foreground">
-        <p>Made with ❤️ for the teachers of India.</p>
+        <p>Made for teachers of India.</p>
       </footer>
     </div>
   );
