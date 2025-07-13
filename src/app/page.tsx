@@ -25,7 +25,7 @@ export default function WelcomePage() {
             <h1 className="text-5xl md:text-7xl font-bold font-headline text-primary tracking-tight">
               VidyaNav-ai
             </h1>
-            <p className="text-lg md:text-xl text-foreground/80">
+            <p className="text-lg md:text-xl text-foreground/80 mt-2">
               Your AI Sahayak for Multi-Grade Classrooms in Rural India
             </p>
           </div>
