@@ -73,3 +73,31 @@
     display: none;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Improve text wrapping for worksheet content */
+.prose {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.prose p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.prose strong {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
