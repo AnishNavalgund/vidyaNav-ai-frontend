@@ -237,9 +237,9 @@ export function WorksheetGenerator() {
                   name="gradeLevels"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Grade levels (e.g. Class 3, Class 5)</FormLabel>
+                      <FormLabel>Grade levels (e.g. 1,2,3)</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g. Class 3, Class 5" {...field} />
+                        <Input placeholder="e.g. 1,2,3" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -359,19 +359,6 @@ export function WorksheetGenerator() {
                   <div className="bg-muted/50 rounded-lg p-6 border border-border">
                     {renderWorksheetContent(response)}
                   </div>
-                </div>
-
-                {/* Additional Features */}
-                <div className="flex flex-wrap gap-2">
-                  <Button variant="outline" size="sm" className="text-xs">
-                    📋 Copy to Clipboard
-                  </Button>
-                  <Button variant="outline" size="sm" className="text-xs">
-                    🖨️ Print Worksheet
-                  </Button>
-                  <Button variant="outline" size="sm" className="text-xs">
-                    💾 Download PDF
-                  </Button>
                 </div>
               </div>
             </CardContent>

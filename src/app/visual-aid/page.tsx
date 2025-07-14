@@ -94,7 +94,7 @@ export default function VisualAidPage() {
                 {isPending ? (
                   <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Generating...</>
                 ) : (
-                  <><ImageIcon className="mr-2 h-4 w-4" /> Generate Visual Aid</>
+                  <><ImageIcon className="mr-2 h-4 w-4" /> Generate Image</>
                 )}
               </Button>
             </form>

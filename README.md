@@ -9,8 +9,8 @@ VidyaNav-ai is an AI-powered educational assistant for teachers in multi-grade c
 
 ## Features
 
-- **Smart Worksheet Generator:** Instantly create tailored math worksheets for different grade levels.
-- **Instant Knowledge Assistant:** Get quick, clear answers to common student questions on any topic.
+- **Smart Worksheet Generator:** Instantly create tailored worksheets for different grade levels.
+- **Instant Knowledge Assistant:** Answer your students of any grade creatively and with confidence.
 - **Visual Aid Generator:** Generate engaging visual aids and learning materials using AI image generation.
 
 ## How to Run
@@ -38,7 +38,8 @@ The app will start on [http://localhost:9002](http://localhost:9002).
 This frontend requires the [VidyaNav-ai Backend](https://github.com/AnishNavalgund/vidyaNav-ai-backend) server to be running for full functionality.
 
 - **Start the backend server first** before running the frontend.
-- For backend setup and API details, see the [backend README](https://github.com/AnishNavalgund/vidyaNav-ai-backend).
+- For backend setup and API details, see the [backend README](https://github.com/AnishNavalgund/vidyaNav-ai-backend/blob/main/README.md).
+- All the information about the backend and project is also in the [backend README](https://github.com/AnishNavalgund/vidyaNav-ai-backend/blob/main/README.md).
 
 ## Contact
 Email: anishk.navalgund@gmail.com

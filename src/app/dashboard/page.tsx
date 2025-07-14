@@ -13,7 +13,7 @@ export default function DashboardPage() {
           Welcome to your Dashboard
         </h1>
         <p className="max-w-3xl text-lg md:text-xl text-foreground/80 mb-12">
-          Generate worksheets, visuals, and student answers — in one click.
+        Generate worksheets, visuals, and answer your students of any grade in just one click.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
@@ -25,7 +25,7 @@ export default function DashboardPage() {
                 </div>
               </div>
               <CardTitle className="font-headline text-2xl">Generate Smart Worksheet</CardTitle>
-              <CardDescription>Create tailored math worksheets for different grade levels instantly.</CardDescription>
+              <CardDescription>Create worksheets for different grade levels instantly.</CardDescription>
             </CardHeader>
             <CardContent>
               <Button asChild className="w-full" variant="default">
@@ -44,7 +44,7 @@ export default function DashboardPage() {
                 </div>
               </div>
               <CardTitle className="font-headline text-2xl">Instant Knowledge Assistant</CardTitle>
-              <CardDescription>Get quick, clear answers to common student questions on any topic.</CardDescription>
+              <CardDescription>Answer your students of any grade creatively and with confidence.</CardDescription>
             </CardHeader>
             <CardContent>
               <Button asChild className="w-full" variant="default">
@@ -63,7 +63,7 @@ export default function DashboardPage() {
                 </div>
               </div>
               <CardTitle className="font-headline text-2xl">Visual Aid Generator</CardTitle>
-              <CardDescription>Generate engaging visual aids and learning materials.</CardDescription>
+              <CardDescription>Generate any images for your students with just a prompt.</CardDescription>
             </CardHeader>
             <CardContent>
               <Button asChild className="w-full" variant="default">
