@@ -55,7 +55,7 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-xl transition-shadow duration-300 border-dashed border-2 border-muted-foreground/30 hover:border-primary/50 hover:-translate-y-1 transform flex flex-col justify-between bg-muted/50">
+          <Card className="hover:shadow-xl transition-shadow duration-300 border-2 border-primary/20 hover:border-primary/50 hover:-translate-y-1 transform flex flex-col justify-between">
             <CardHeader>
               <div className="flex justify-center mb-4">
                 <div className="p-4 bg-muted rounded-full">
@@ -63,12 +63,12 @@ export default function DashboardPage() {
                 </div>
               </div>
               <CardTitle className="font-headline text-2xl">Visual Aid Generator</CardTitle>
-              <CardDescription>Generate engaging visual aids and learning materials. Coming soon!</CardDescription>
+              <CardDescription>Generate engaging visual aids and learning materials.</CardDescription>
             </CardHeader>
             <CardContent>
-              <Button asChild className="w-full" variant="secondary" disabled>
+              <Button asChild className="w-full" variant="default">
                 <Link href="/visual-aid">
-                  Coming Soon
+                  Generate Image <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </CardContent>
