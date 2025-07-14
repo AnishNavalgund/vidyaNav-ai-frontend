@@ -4,7 +4,7 @@ VidyaNav-ai is an AI-powered educational assistant for teachers in multi-grade c
 
 ## About the Project
 
-- **UI Development:** The user interface was primarily developed using Firebase AI Studio, with several features and components hand-coded for customization.
+- **UI Development:** The user interface was primarily developed using **Firebase AI Studio**, with several features and components hand-coded for customization.
 - **Tech Stack:** Next.js 15, React 18, TypeScript, Tailwind CSS, Radix UI, Firebase.
 
 ## Features
