@@ -7,10 +7,16 @@ import { Button } from '@/components/ui/button';
 import { Loader2, ImageIcon, RefreshCw } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
+interface VisualAidResult {
+  image_url: string;
+  caption: string;
+  topic: string;
+}
+
 export default function VisualAidPage() {
   const [prompt, setPrompt] = useState('');
   const [count, setCount] = useState(1);
-  const [result, setResult] = useState<null | { image_url: string; caption: string; topic: string }>(null);
+  const [results, setResults] = useState<VisualAidResult[] | null>(null);
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
@@ -18,7 +24,7 @@ export default function VisualAidPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-    setResult(null);
+    setResults(null);
     startTransition(async () => {
       try {
         const res = await fetch('http://localhost:8080/visual-aid', {
@@ -31,7 +37,8 @@ export default function VisualAidPage() {
           throw new Error(errText || 'Failed to generate visual aid');
         }
         const data = await res.json();
-        setResult(data);
+        // If backend returns a single object, wrap in array
+        setResults(Array.isArray(data) ? data : [data]);
       } catch (err: any) {
         setError(err.message);
         toast({
@@ -44,7 +51,7 @@ export default function VisualAidPage() {
   };
 
   const handleGenerateAgain = () => {
-    setResult(null);
+    setResults(null);
     setError(null);
     handleSubmit({ preventDefault: () => {} } as React.FormEvent);
   };
@@ -96,23 +103,25 @@ export default function VisualAidPage() {
               <div className="mt-4 text-red-600 text-center font-medium">{error}</div>
             )}
 
-            {result && (
-              <div className="flex flex-col items-center mt-8">
-                <Card className="w-full max-w-md shadow-md rounded-xl p-4">
-                  <div className="flex flex-col items-center">
-                    <img
-                      src={result.image_url}
-                      alt={result.caption || 'AI generated visual aid'}
-                      className="rounded-lg shadow mb-4 max-h-80 object-contain bg-white"
-                      style={{ width: '100%', maxWidth: 400 }}
-                    />
-                    <div className="text-lg font-semibold text-primary mb-1">{result.topic}</div>
-                    <div className="text-muted-foreground mb-2">{result.caption}</div>
-                    <Button variant="outline" size="sm" className="mt-2" onClick={handleGenerateAgain}>
-                      <RefreshCw className="mr-2 h-4 w-4" /> Generate Again
-                    </Button>
-                  </div>
-                </Card>
+            {results && (
+              <div className="flex flex-col items-center mt-8 w-full">
+                <div className={`grid gap-6 w-full ${results.length > 1 ? 'sm:grid-cols-2' : ''}`}>
+                  {results.map((result, idx) => (
+                    <Card key={idx} className="w-full shadow-md rounded-xl p-4 flex flex-col items-center">
+                      <img
+                        src={result.image_url}
+                        alt={result.caption || 'AI generated visual aid'}
+                        className="rounded-lg shadow mb-4 max-h-80 object-contain bg-white"
+                        style={{ width: '100%', maxWidth: 400 }}
+                      />
+                      <div className="text-lg font-semibold text-primary mb-1">{result.topic}</div>
+                      <div className="text-muted-foreground mb-2 text-center">{result.caption}</div>
+                    </Card>
+                  ))}
+                </div>
+                <Button variant="outline" size="sm" className="mt-6" onClick={handleGenerateAgain}>
+                  <RefreshCw className="mr-2 h-4 w-4" /> Generate Again
+                </Button>
               </div>
             )}
           </CardContent>
