@@ -262,6 +262,7 @@ export function WorksheetGenerator() {
                           <SelectItem value="English">English</SelectItem>
                           <SelectItem value="Hindi">Hindi</SelectItem>
                           <SelectItem value="Kannada">Kannada</SelectItem>
+                          <SelectItem value="German">German</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
