@@ -4,7 +4,8 @@ import { useState, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Loader2, Upload, BookOpenCheck, Palette, BrainCircuit, HelpCircle } from 'lucide-react';
+import { Loader2, Upload, BookOpenCheck, Palette, BrainCircuit, HelpCircle, Printer } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 
 // Helper to get full image URL
 function getImageUrl(url: string) {
@@ -36,8 +37,34 @@ function RenderResult({ result }: { result: any }) {
     );
   }
 
+  // Worksheet rendering: grade_X keys with string values
+  const gradeKeys = Object.keys(result).filter(k => /^grade_\d+$/.test(k) && typeof result[k] === 'string' && result[k]);
+  if (gradeKeys.length > 0) {
+    return (
+      <div className="mb-6">
+        <div className="flex items-center gap-2 mb-6 text-primary">
+          <BookOpenCheck className="h-6 w-6" />
+          <span className="font-extrabold text-2xl">Generated Worksheet</span>
+        </div>
+        <div className="grid grid-cols-1 gap-12 w-full max-w-4xl mx-auto">
+          {gradeKeys.map((gradeKey, idx) => (
+            <Card key={gradeKey} className="p-0 shadow-lg border-2 border-primary/10 bg-gradient-to-br from-primary/5 to-white">
+              <div className="flex items-center px-8 py-6 rounded-t-lg bg-primary/90 mb-0">
+                <BookOpenCheck className="h-7 w-7 text-white mr-3" />
+                <span className="font-extrabold text-white text-2xl tracking-wide">Grade {gradeKey.replace('grade_', '')} Worksheet</span>
+              </div>
+              <div className="prose max-w-none text-foreground bg-white/90 rounded-b-lg px-10 py-8 text-lg leading-relaxed space-y-6">
+                <ReactMarkdown>{result[gradeKey]}</ReactMarkdown>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   // Try to detect intent
-  const intent = result.intent || result.type || (result.worksheets && 'worksheet') || (result.answer && 'instant_knowledge') || (result.image_url || result.images || result.visuals ? 'visual_aid' : null);
+  const intent = result.intent || result.type || (result.worksheets || result.grade_1 || result.grade_2) || (result.answer && 'instant_knowledge') || (result.image_url || result.images || result.visuals ? 'visual_aid' : null);
 
   // Worksheet rendering
   if (intent === 'worksheet' && (result.worksheets || result.grade_1 || result.grade_2)) {
