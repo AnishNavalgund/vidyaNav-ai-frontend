@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -30,9 +32,8 @@ export default function WelcomePage() {
             Your AI Sahayak for Multi-Grade Classrooms in Rural India
           </p>
         </div>
-        
         <Button asChild size="lg" className="mt-8 text-lg">
-          <Link href="/dashboard">
+          <Link href="/assistant">
             Get Started <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </Button>

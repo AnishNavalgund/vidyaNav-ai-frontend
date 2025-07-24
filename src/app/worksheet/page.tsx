@@ -1,5 +1,4 @@
 import { Header } from '@/components/Header';
-import { WorksheetGenerator } from './WorksheetGenerator';
 
 export default function WorksheetPage() {
   return (
@@ -10,10 +9,9 @@ export default function WorksheetPage() {
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold font-headline tracking-tight">Smart Worksheet Generator</h2>
             <p className="text-muted-foreground mt-2">
-              Select grade levels and a topic to generate a custom worksheet.
+              This feature is now part of the unified AI Assistant on the home page.
             </p>
           </div>
-          <WorksheetGenerator />
         </div>
       </main>
     </div>
