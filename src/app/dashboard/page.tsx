@@ -17,7 +17,7 @@ export default function DashboardPage() {
         </p>
       </main>
       <footer className="text-center p-4 text-sm text-muted-foreground">
-        <p>Made for teachers of India.</p>
+        <p>Made for teachers in rural areas.</p>
       </footer>
     </div>
   );

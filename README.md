@@ -1,6 +1,6 @@
 # VidyaNav-ai Frontend	
 
-VidyaNav-ai is an AI-powered educational assistant for teachers in multi-grade classrooms in rural India. It helps generate smart worksheets, instant knowledge answers, and visual aids for classroom use.
+VidyaNav-ai is an AI-powered educational assistant for teachers in multi-grade classrooms in rural areas. It helps generate smart worksheets, instant knowledge answers, and visual aids for classroom use.
 
 ## About the Project
 

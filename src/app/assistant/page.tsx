@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Loader2, Upload, BookOpenCheck, Palette, BrainCircuit, HelpCircle, Printer } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import { Textarea } from '@/components/ui/textarea';
 
 // Helper to get full image URL
 function getImageUrl(url: string) {
@@ -166,16 +167,16 @@ export default function AssistantPage() {
         {/* Highlights Section */}
         <div className="w-full max-w-3xl mb-10 bg-primary/5 rounded-2xl p-6 border border-primary/10 shadow-sm">
           <h2 className="text-4xl font-extrabold font-headline mb-2 text-primary flex items-center gap-2">
-            <span>✨</span> What can VidyaNav-ai do for you?
+            <span>✨</span> What can VidyaNav-ai do for you? ✨
           </h2>
-          <p className="text-lg text-muted-foreground mb-6">Empowering teachers with instant, AI-powered tools for every classroom moment. Just type your need or upload a file—VidyaNav-ai figures out the rest!</p>
+          <p className="text-lg text-muted-foreground mb-6">Empowering teachers with instant, AI-powered tools for every classroom moment. <br /> Just type your need and upload a file. <br /> Now Supports English, German, Italian, French, Hindi.</p>
           <div className="grid gap-6 md:grid-cols-3">
             <div className="bg-white rounded-xl p-5 border border-border flex flex-col items-center shadow hover:shadow-md transition-shadow">
               <BookOpenCheck className="h-9 w-9 text-primary mb-3" />
               <h3 className="font-bold text-lg mb-1 text-primary">Smart Worksheet Generator</h3>
               <ul className="text-sm text-muted-foreground list-disc pl-4 text-left space-y-1">
                 <li>Upload a textbook page or image</li>
-                <li>Get printable, grade-specific worksheets</li>
+                <li>Get grade-specific worksheets</li>
                 <li>Supports multiple languages</li>
               </ul>
             </div>
@@ -200,25 +201,27 @@ export default function AssistantPage() {
           </div>
         </div>
         {/* AI Assistant Form */}
-        <Card className="w-full max-w-xl mx-auto">
+        <Card className="w-full max-w-4xl mx-auto p-2 md:p-8 shadow-xl">
           <CardHeader>
-            <CardTitle className="font-headline text-2xl text-center">AI Assistant</CardTitle>
+            <CardTitle className="font-headline text-3xl text-center mb-2">AI Powers You</CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <label htmlFor="prompt" className="block font-medium">What do you need help with?</label>
-                <Input
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="space-y-3">
+                <label htmlFor="prompt" className="block font-semibold text-lg">What do you need help with?</label>
+                <Textarea
                   id="prompt"
                   value={prompt}
                   onChange={e => setPrompt(e.target.value)}
-                  placeholder="Type your request (e.g. Generate a worksheet for grade 5 in German, or Draw a tree, or Answer: Why is the sky blue?)"
+                  placeholder="Type your request (e.g: Generate a worksheet for grade 5 in German, or Draw one tree, or  Give me Instant knowledge on Why is the sky blue?)"
                   required
                   disabled={isPending}
+                  rows={6}
+                  className="text-xl py-2 px-6 h-auto min-h-[7rem] rounded-2xl border-2 border-primary/30 focus:border-primary/70 bg-white shadow-lg resize-vertical"
                 />
               </div>
               <div className="space-y-2">
-                <label htmlFor="file" className="block font-medium">Upload textbook image, PDF, or DOCX (optional)</label>
+                <label htmlFor="file" className="block font-medium">Upload textbook image, PDF, or DOCX </label>
                 <div className="flex items-center gap-2">
                   <Input
                     id="file"
@@ -227,20 +230,26 @@ export default function AssistantPage() {
                     ref={fileInputRef}
                     onChange={e => setFile(e.target.files?.[0] || null)}
                     disabled={isPending}
+                    className="w-full"
                   />
-                  {file && <span className="text-sm text-muted-foreground">{file.name}</span>}
                   <Button
                     type="button"
                     variant="outline"
                     size="icon"
                     onClick={() => {
-                      setFile(null);
-                      if (fileInputRef.current) fileInputRef.current.value = '';
+                      if (file) {
+                        setFile(null);
+                        if (fileInputRef.current) fileInputRef.current.value = '';
+                      } else {
+                        fileInputRef.current?.click();
+                      }
                     }}
-                    disabled={isPending || !file}
+                    disabled={isPending}
+                    aria-label={file ? 'Clear file' : 'Upload file'}
                   >
-                    <Upload className="h-4 w-4" />
+                    {file ? <span className="font-bold text-lg">×</span> : <Upload className="h-5 w-5" />}
                   </Button>
+                  {file && <span className="text-sm text-muted-foreground">{file.name}</span>}
                 </div>
               </div>
               <Button type="submit" className="w-full" disabled={isPending}>
