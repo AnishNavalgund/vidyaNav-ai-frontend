@@ -2,9 +2,9 @@
 
 ## Core Features:
 
-- Homepage Title: Display the title of the homepage, 'VidyaNav-ai: Your AI Sahayak for Multi-Grade Classrooms'.
+- Homepage Title: Display the title of the homepage, 'VidyaNav-ai: Your AI Partner for Multi-Grade Classrooms'.
 - Navigation Buttons: Provide buttons for 'Generate Smart Worksheet,' 'Ask a Student Question,' and 'Visual Aid Generator' leading to the appropriate page.
-- Descriptive Subheading: Add a subheading: 'Built for rural India’s teachers. Generate worksheets, visuals, and answer your students of any grade in just one click.'
+- Descriptive Subheading: Add a subheading: 'Built for rural teachers. Generate worksheets, visuals, and answer your students of any grade in just one click.'
 - Generate Worksheet AI: A tool that lets the AI select suitable math problems for the generated worksheets based on student grades.
 - Instant Knowledge AI: A tool that helps answer common student questions.
 

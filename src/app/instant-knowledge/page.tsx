@@ -1,5 +1,4 @@
 import { Header } from '@/components/Header';
-import { InstantKnowledgeForm } from './InstantKnowledgeForm';
 
 export default function InstantKnowledgePage() {
   return (
@@ -10,10 +9,9 @@ export default function InstantKnowledgePage() {
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold font-headline tracking-tight">Instant Knowledge Assistant</h2>
             <p className="text-muted-foreground mt-2">
-              Get a clear, easy-to-understand answer to a student's question, with context from their textbook.
+              This feature is now part of the unified AI Assistant on the home page.
             </p>
           </div>
-          <InstantKnowledgeForm />
         </div>
       </main>
     </div>

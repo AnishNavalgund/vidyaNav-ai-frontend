@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: 'VidyaNav-ai',
-  description: 'Your AI Sahayak for Multi-Grade Classrooms in Rural India',
+  description: 'Your AI Partner for Multi-Grade Classrooms in Rural Areas',
 };
 
 export default function RootLayout({

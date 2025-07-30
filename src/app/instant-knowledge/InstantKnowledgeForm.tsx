@@ -155,6 +155,8 @@ export function InstantKnowledgeForm() {
                           <SelectItem value="Hindi">Hindi</SelectItem>
                           <SelectItem value="Kannada">Kannada</SelectItem>
                           <SelectItem value="German">German</SelectItem>
+                          <SelectItem value="Italian">Italian</SelectItem>
+                          <SelectItem value="French">French</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
